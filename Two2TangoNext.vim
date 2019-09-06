@@ -61,6 +61,7 @@
   "isn't a Tango color that provides enough contrast
   let s:hMarkers    = ['#212628', '235']
   let s:vMarkers    = ['#2a3033', '235']
+  let s:vMarkersLt  = ['#313739', '235']
   "  Aluminium[4] is too dark for the Ford office but Aluminium[3] is to light
   "  #6e706b is 50% btwn them and 61635f is 75%
   let s:Comments    = ['#61635f', '241']
@@ -155,16 +156,15 @@ call <sid>hi('iCursor',                    s:Aluminium5, s:ScarletRed0,  'none',
 " call <sid>hi('NonText',                    s:base03, '',       '',          '')
 call <sid>hi('Normal',                     s:Aluminium1, s:Aluminium5, '',    '')
 " call <sid>hi('EndOfBuffer',                s:base05, s:base00, '',          '')
-call <sid>hi('LineNr',                     s:Aluminium4, s:Aluminium5, '',    '')
-call <sid>hi('SignColumn',                 s:Aluminium4, s:Aluminium5, '',    '')
 call <sid>hi('StatusLine',                 s:Aluminium0, s:Orange2,'none','none')
+call <sid>hi('LineNr',                     s:Aluminium4, s:vMarkersLt, '',    '')
+call <sid>hi('SignColumn',                 '', s:vMarkersLt, '',    '')
 call <sid>hi('StatusLineNC',               s:Aluminium5, s:Aluminium3, '','none')
 call <sid>hi('VertSplit',                  s:Aluminium5, s:Aluminium3, '','none')
 call <sid>hi('ColorColumn',                '',           s:vMarkers, '',      '')
 call <sid>hi('CursorColumn',               '',           s:hMarkers, '',      '')
 call <sid>hi('CursorLine',                 '',           s:hMarkers, '',      '')
-" call <sid>hi('CursorLineNR',               s:base00, s:base00, '',          '')
-" call <sid>hi('CursorLineNr',               s:base03, s:base01, '',          '')
+call <sid>hi('CursorLineNr',               '',           s:hMarkers, '',      '')
 call <sid>hi('PMenu',                      s:Aluminium4, s:Aluminium2, '',    '')
 call <sid>hi('PMenuSel',                   s:Aluminium5, s:Aluminium0, '',    '')
 " call <sid>hi('PmenuSbar',                  '',       s:base02, '',          '')
@@ -194,11 +194,10 @@ call <sid>hi('Operator',                   s:Butter1,  '',       '',          ''
 call <sid>hi('PreProc',                    s:Chocolate0, '',     '',          '')
 call <sid>hi('Repeat',                     s:Butter2, '',       'bold',       '')
 call <sid>hi('Special',                    s:SkyBlue1, '',       '',          '')
-" call <sid>hi('SpecialChar',                s:base0F, '',       '',          '')
+" call <sid>hi('SpecialChar',                s:base0F,0'',       '',          '')
 call <sid>hi('Statement',                  s:Aluminium3, '',       '',        '')
 " call <sid>hi('StorageClass',               s:base0A, '',       '',          '')
-" call <sid>hi('String',                     s:SkyBlue0, '',       '',          '')
-call <sid>hi('String',                     s:Orange2, '',       '',          '')
+call <sid>hi('String',                     s:SkyBlue0, '',       '',          '')
 call <sid>hi('Structure',                  s:Orange2, '',       'bold',       '')
 " call <sid>hi('Tag',                        s:base0A, '',       '',          '')
 call <sid>hi('Todo',                       s:Aluminium0, s:Orange2,'bold','none')
@@ -278,10 +277,10 @@ call <sid>hi('Error',                      s:Aluminium0, s:ScarletRed2,   '', ''
 " call <sid>hi('phpComparison',              s:base05, '',       '',          '')
 " call <sid>hi('phpParent',                  s:base05, '',       '',          '')
 " call <sid>hi('phpMemberSelector',          s:base05, '',       '',          '')
-"
+
 " call <sid>hi('pythonRepeat',               s:base0E, '',       '',          '')
 " call <sid>hi('pythonOperator',             s:base0E, '',       '',          '')
-"
+
 " call <sid>hi('rubyConstant',               s:base0A, '',       '',          '')
 " call <sid>hi('rubySymbol',                 s:base0B, '',       '',          '')
 " call <sid>hi('rubyAttribute',              s:base0D, '',       '',          '')
@@ -289,39 +288,37 @@ call <sid>hi('Error',                      s:Aluminium0, s:ScarletRed2,   '', ''
 " call <sid>hi('rubyInterpolationDelimiter', s:base0F, '',       '',          '')
 " call <sid>hi('rubyStringDelimiter',        s:base0B, '',       '',          '')
 " call <sid>hi('rubyRegexp',                 s:base0C, '',       '',          '')
-"
+
 " call <sid>hi('sassidChar',                 s:base08, '',       '',          '')
 " call <sid>hi('sassClassChar',              s:base09, '',       '',          '')
 " call <sid>hi('sassInclude',                s:base0E, '',       '',          '')
 " call <sid>hi('sassMixing',                 s:base0E, '',       '',          '')
 " call <sid>hi('sassMixinName',              s:base0D, '',       '',          '')
-"
+
 " call <sid>hi('vimfilerLeaf',               s:base05, '',       '',          '')
 " call <sid>hi('vimfilerNormalFile',         s:base05, s:base00, '',          '')
 " call <sid>hi('vimfilerOpenedFile',         s:base0D, '',       '',          '')
 " call <sid>hi('vimfilerClosedFile',         s:base0D, '',       '',          '')
-"
-" call <sid>hi('GitGutterAdd',               s:base0B, s:base00, s:bold,      '')
-" call <sid>hi('GitGutterChange',            s:base0D, s:base00, s:bold,      '')
-" call <sid>hi('GitGutterDelete',            s:base08, s:base00, s:bold,      '')
-" call <sid>hi('GitGutterChangeDelete',      s:base0E, s:base00, s:bold,      '')
-"
+
+call <sid>hi('GitGutterAdd',               s:Comments, s:vMarkersLt, s:bold,   '')
+call <sid>hi('GitGutterChange',            s:Comments, s:vMarkersLt, s:bold,   '')
+call <sid>hi('GitGutterDelete',            s:Comments, s:vMarkersLt, s:bold,   '')
+call <sid>hi('GitGutterChangeDelete',      s:Comments, s:vMarkersLt, s:bold,   '')
+
 " call <sid>hi('SignifySignAdd',             s:base0B, s:base00, s:bold,      '')
 " call <sid>hi('SignifySignChange',          s:base0D, s:base00, s:bold,      '')
 " call <sid>hi('SignifySignDelete',          s:base08, s:base00, s:bold,      '')
 " call <sid>hi('SignifySignChangeDelete',    s:base0E, s:base00, s:bold,      '')
 " call <sid>hi('SignifySignDeleteFirstLine', s:base08, s:base00, s:bold,      '')
-"
+
 " call <sid>hi('xmlTag',                     s:base0C, '',       '',          '')
 " call <sid>hi('xmlTagName',                 s:base05, '',       '',          '')
 " call <sid>hi('xmlEndTag',                  s:base0C, '',       '',          '')
 
-call <sid>hi('CocErrorSign',                 s:Comments, '',   '', '')
-call <sid>hi('CocWarningSign',               s:Comments, '',   '', '')
-call <sid>hi('CocInfoSign',                  s:Comments, '',   '', '')
-call <sid>hi('CocHintSign',                  s:Comments, '',   '', '')
-
-
+call <sid>hi('CocErrorSign',                 s:ScarletRed0, s:vMarkersLt, '', '')
+call <sid>hi('CocWarningSign',               s:Butter1,     '',   '', '')
+call <sid>hi('CocInfoSign',                  s:Chocolate0,  '',   '', '')
+call <sid>hi('CocHintSign',                  s:Chocolate1,  '',   '', '')
 " }}}
 
 let g:terminal_color_0=s:base00[0]
